@@ -1,0 +1,401 @@
+:root {
+    --bg-color: #0f172a;         /* Slate Navy Gelap (Tenang & Teduh) */
+    --sidebar-color: #1e293b;    /* Deep Charcoal (Kokoh) */
+    --card-color: #1e293b;       /* Deep Charcoal */
+    --primary-color: #06b6d4;    /* Neon Cyan Utama */
+    --accent-color: #3b82f6;     /* Biru Router */
+    --warning-color: #f59e0b;    /* Emas Amber Sematan */
+    --success-color: #10b981;    /* Hijau Aktif */
+    --danger-color: #ef4444;     /* Merah Hapus */
+    --text-color: #f8fafc;       /* Putih Salju */
+    --text-muted: #64748b;       /* Abu-abu Redup Lembut */
+    --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column; /* Mobile-first layout */
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* --- SIDEBAR & NAVIGATION (SUPER RAPI) --- */
+.sidebar {
+    width: 100%;
+    background-color: var(--sidebar-color);
+    padding: 18px 15px;
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar h3 {
+    color: var(--primary-color);
+    font-size: 19px;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.sidebar p {
+    display: none;
+}
+
+.sidebar-menu {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.sidebar a {
+    flex: 1;
+    text-align: center;
+    color: #94a3b8;
+    text-decoration: none;
+    padding: 11px 5px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.sidebar a:hover, .sidebar a.active {
+    background-color: var(--primary-color);
+    color: #0f172a;
+    font-weight: 700;
+}
+
+/* --- MAIN AREA & HEADER (MINIMALIS & TIDAK RAMAI) --- */
+.main-content {
+    padding: 30px 16px;
+    width: 100%;
+}
+
+.header-main {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.header-main h1 {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+    background: linear-gradient(to right, #ffffff, #a5f3fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header-main p {
+    font-size: 13px;
+    color: var(--text-muted);
+    max-width: 450px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* --- HERO CARD (📌 MATERI UTAMA PRAKTIK) --- */
+.pinned-container {
+    background: linear-gradient(135deg, #1e3a8a 0%, #172554 100%);
+    padding: 24px;
+    border-radius: 20px;
+    margin-bottom: 35px;
+    border-left: 5px solid var(--warning-color);
+    box-shadow: var(--card-shadow);
+}
+
+.pinned-badge {
+    background-color: var(--warning-color);
+    color: #0f172a;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.pinned-container h2 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.pinned-container p {
+    font-size: 13px;
+    color: #cbd5e1;
+    margin-bottom: 20px;
+}
+
+/* --- GRID MENU UTAMA --- */
+.grid-kelas {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    margin-bottom: 35px;
+}
+
+.card-kelas {
+    background-color: var(--card-color);
+    padding: 22px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--card-shadow);
+}
+
+.card-kelas h3 {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.card-kelas p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* --- FILTER & INPUT PENCARIAN --- */
+.filter-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 25px;
+}
+
+.search-control {
+    width: 100%;
+    padding: 14px 18px;
+    background-color: var(--card-color);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: #ffffff;
+    border-radius: 14px;
+    font-size: 14px;
+    outline: none;
+    box-shadow: var(--card-shadow);
+}
+
+.search-control:focus {
+    border-color: var(--primary-color);
+}
+
+.filter-buttons {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+}
+
+.filter-buttons::-webkit-scrollbar {
+    display: none;
+}
+
+/* --- MOBILES DATA CARDS (SANGAT SIMETRIS & MEMUASKAN) --- */
+.mobile-card-list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.data-card {
+    background-color: var(--card-color);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    transition: all 0.2s;
+}
+
+.card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.card-info-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.card-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+}
+
+.card-actions .btn {
+    flex: 1;
+}
+
+/* --- BUTTONS & BADGES (PENYEDERHANAAN KOSMETIK) --- */
+.btn {
+    display: inline-block;
+    padding: 12px 16px;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn:hover {
+    filter: brightness(1.1);
+}
+
+.btn-success {
+    background-color: rgba(6, 182, 212, 0.1);
+    color: var(--primary-color);
+    border: 1px solid rgba(6, 182, 212, 0.2);
+}
+
+.btn-danger {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--danger-color);
+}
+
+.btn-filter-active {
+    background-color: var(--primary-color) !important;
+    color: #0f172a !important;
+}
+
+.badge {
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    background-color: rgba(255, 255, 255, 0.04);
+    color: #cbd5e1;
+}
+
+.badge-type {
+    background-color: rgba(6, 182, 212, 0.1);
+    color: var(--primary-color);
+}
+
+/* --- FORM KONTROL GURU --- */
+.form-container {
+    background-color: var(--card-color);
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: var(--card-shadow);
+}
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-size: 13px; font-weight: 700; }
+.form-control { width: 100%; padding: 14px; background-color: var(--bg-color); border: none; color: #ffffff; border-radius: 10px; }
+
+/* ==========================================================================
+   LAPTOP & DESKTOP LAYOUT (KOMPUTER / PROYEKTOR JELAS)
+   ========================================================================== */
+@media (min-width: 768px) {
+    body {
+        flex-direction: row;
+    }
+
+    .sidebar {
+        width: 280px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 40px 24px;
+        box-shadow: none;
+        border-right: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .sidebar h3 {
+        text-align: left;
+        font-size: 23px;
+    }
+
+    .sidebar p {
+        display: block;
+        color: var(--text-muted);
+        font-size: 12px;
+        margin-top: 4px;
+        margin-bottom: 35px;
+    }
+
+    .sidebar-menu {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 0;
+    }
+
+    .sidebar a {
+        flex: none;
+        display: block;
+        text-align: left;
+        padding: 14px 18px;
+        font-size: 14px;
+    }
+
+    .main-content {
+        margin-left: 280px;
+        padding: 50px;
+        width: calc(100% - 280px);
+        max-width: 1200px; /* Menjaga tata letak tidak melar terlalu lebar */
+    }
+
+    .header-main {
+        text-align: left;
+        margin-bottom: 40px;
+    }
+
+    .header-main h1 { font-size: 34px; }
+    .header-main p { margin: 0; text-align: left; }
+
+    .grid-kelas {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+
+    .mobile-card-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .filter-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .search-control {
+        max-width: 380px;
+    }
+
+    .data-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+}
